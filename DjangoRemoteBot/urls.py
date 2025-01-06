@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from bot import views
+from bot.views import getMaoDeOnzeResponse
+from bot.views import getName
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('mao-de-onze/', botActions.getMaoDeOnzeResponse),
+    path('mao-de-onze/', getMaoDeOnzeResponse),
+    path('name/',getName)
     # path('if-raises/', botActions.decideIfRaises),	
     # path('choose-card/', botActions.chooseCard),
     # path('raise-response/', botActions.getRaiseResponse),

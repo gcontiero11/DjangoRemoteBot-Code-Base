@@ -1,23 +1,26 @@
 from abc import ABC, abstractmethod
+
+from django.http import JsonResponse
 from bot.game_model.card_to_play import CardToPlay
 from bot.game_model.game_intel import GameIntel
 
 class BotServiceProvider(ABC):
   @abstractmethod
-  def getMaoDeOnzeResponse(intel: GameIntel) -> bool:
+  def get_mao_de_onze_response(self,intel: GameIntel) -> bool:
     raise NotImplementedError
   
   @abstractmethod
-  def decideIfRaises(intel: GameIntel) -> bool:
+  def decide_if_raises(self,intel: GameIntel) -> bool:
     raise NotImplementedError
   
   @abstractmethod
-  def chooseCard(intel: GameIntel) -> CardToPlay:
+  def choose_card(self,intel: GameIntel) -> CardToPlay:
     raise NotImplementedError
   
   @abstractmethod
-  def getRaiseResponse(intel: GameIntel) -> int:
+  def get_raise_response(self,intel: GameIntel) -> int:
     raise NotImplementedError
   
   def getName(self) -> str:
-    return self.__class__.__name__
+    return JsonResponse({"name": "Gustavo"})
+    # return self.__class__.__name__
